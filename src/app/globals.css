@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollSnapping {
+  scroll-snap-type: y mandatory;
+}
+
+.scrollSnapTarget {
+  scroll-snap-align: start;
+}
+
+.container2 {
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y mandatory;
+}
+
+.oddFont {
+  font-family: Impact;
+}
+
+.letterSpacingLess {
+  font-family: Impact;
+  letter-spacing: -5px;
+  line-height: 180px;
+}
