@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Mysection from "../components/Mysection";
 import Image from "next/image";
 import AOS from 'aos';
@@ -10,13 +10,44 @@ import Section1 from "../components/landing/section1";
 
 export default function Home() {
   const [showComponent, setShowComponent] = useState(false);
+  const lastMouseMoved = useRef(Date.now());
+
+  React.useEffect(() => {
+    function handleMouseMove() {
+      lastMouseMoved.current = Date.now();
+    }
+    document.addEventListener('mousemove', handleMouseMove);
+
+    // Clear the event listener if the component is unmounted
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      setShowComponent(true);
-    }, 5000);
-    // Clear the timeout if the component is unmounted
-    return () => clearTimeout(timeoutId);
+      if (Date.now() - lastMouseMoved.current > 7000) {
+        setShowComponent(true);
+        window.scrollBy(0, 600);
+        console.log("=====================================")
+      }
+    }, 7000);
+
+    // Clear the timeout if the component is unmounted or if the mouse moves
+    return () => {
+      clearTimeout(timeoutId);
+      lastMouseMoved.current = Date.now(); // Reset the last mouse move timestamp
+    };
   }, []);
+
+
+  // useEffect(() => {
+  //   const timeoutId = setTimeout(() => {
+  //     setShowComponent(true);
+  //   }, 5000);
+  //   // Clear the timeout if the component is unmounted
+  //   return () => clearTimeout(timeoutId);
+  // }, []);
 
 
   useEffect(() => {
@@ -38,14 +69,14 @@ export default function Home() {
       <div className="w-[100vw] h-[80px] fixed text-center grid grid-cols-3">
         <div className=""></div>
         <div className="flex justify-center navBarLogoBox">
-          <Image src="/image00007.png" width="800" height="600" className="mt-2 navBarLogo" />
+          <Image src="/image00007.png" alt="logo" width="800" height="600" className="mt-2 navBarLogo" />
         </div>
         <div className="text-right px-6 items-center flex justify-end">
-        {showComponent && 
-          <button className="oddFont hover:italic text-3xl font-light">
-            MENU
-          </button>
-        }
+          {showComponent &&
+            <button className="oddFont hover:italic text-3xl font-light">
+              MENU
+            </button>
+          }
         </div>
       </div>
       <div className="container2 w-full h-[100vh] overflow-hidden">
