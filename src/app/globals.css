@@ -24,4 +24,41 @@
   font-family: Impact;
   letter-spacing: -5px;
   line-height: 180px;
+  z-index: -10;
+}
+
+.navBarLogoBox {
+  position: relative;
+  z-index: 10;
+}
+
+.navBarLogo {
+  position: absolute;
+  /* top: 0; */
+  z-index: 10;
+  animation-name: logoShrink;
+  animation-duration: 5s;
+  scale: 0.3;
+
+  translate: 0px -105px;
+}
+
+@keyframes logoShrink {
+  0% {
+    scale: 2;
+    translate: 0px 250px;
+    background-color: #ffc200;
+  }
+
+  50% {
+    scale: 2;
+    translate: 0px 250px;
+    background-color: #ffc200;
+  }
+
+  100% {
+    scale: 0.3;
+    translate: 0px -105px;
+    background-color: transparent;
+  }
 }
