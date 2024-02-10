@@ -74,7 +74,7 @@ export default function Home() {
       <div className="w-[100vw] h-[80px] fixed text-center grid grid-cols-3">
         <div className=""></div>
         <div className="flex justify-center navBarLogoBox">
-          <Image src="/image00007.png" alt="logo" width="800" height="600" className="mt-2 navBarLogo" />
+          <Image src="/image00007.png" alt="logo" width="800" height="600" className="mt-2 navBarLogo" priority />
         </div>
         <div className="text-right px-6 items-center flex justify-end">
           {showComponent &&
