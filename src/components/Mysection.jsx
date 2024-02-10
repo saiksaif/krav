@@ -35,7 +35,7 @@ export default function Mysection({ headline, children }) {
   }, []);
 
   return (
-    <div className={styles.section + " text-black"} ref={sectionRef}>
+    <div className={styles.section + " text-[#ffc200]"} ref={sectionRef}>
       {children}
     </div>
   );

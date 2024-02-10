@@ -78,7 +78,7 @@ export default function Home() {
         </div>
         <div className="text-right px-6 items-center flex justify-end">
           {showComponent &&
-            <button className="oddFont hover:italic text-3xl font-light">
+            <button className="oddFont hover:italic text-3xl font-light text-[#ffc200]">
               MENU
             </button>
           }
