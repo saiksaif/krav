@@ -13,7 +13,7 @@ const Section1 = () => {
 
     return (
         // <div>
-            <div className="text-[200px] flex flex-col items-center justify-center h-full">
+            <div className="text-[50px] md:text-[100px] lg:text-[150px] xl:text-[200px] flex flex-col items-center justify-center h-full">
                 <div className="letterSpacingLess" data-aos="fade-right" data-aos-once="false">
                     OWN YOUR CULTURE
                 </div>

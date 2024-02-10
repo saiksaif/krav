@@ -7,10 +7,10 @@ import 'aos/dist/aos.css';
 
 import Section1 from "../components/landing/section1";
 
-
 export default function Home() {
   const [showComponent, setShowComponent] = useState(false);
   const lastMouseMoved = useRef(Date.now());
+  const scrollableContainerRef = useRef(null);
 
   React.useEffect(() => {
     function handleMouseMove() {
@@ -28,7 +28,12 @@ export default function Home() {
     const timeoutId = setTimeout(() => {
       if (Date.now() - lastMouseMoved.current > 7000) {
         setShowComponent(true);
-        window.scrollBy(0, 600);
+
+        // const scrollableContainerRef = useRef<HTMLDivElement>(null);
+        if (scrollableContainerRef.current) {
+          scrollableContainerRef.current.scrollTop = scrollableContainerRef.current.scrollHeight / 3;
+        }
+
         console.log("=====================================")
       }
     }, 7000);
@@ -41,13 +46,13 @@ export default function Home() {
   }, []);
 
 
-  // useEffect(() => {
-  //   const timeoutId = setTimeout(() => {
-  //     setShowComponent(true);
-  //   }, 5000);
-  //   // Clear the timeout if the component is unmounted
-  //   return () => clearTimeout(timeoutId);
-  // }, []);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setShowComponent(true);
+    }, 5000);
+    // Clear the timeout if the component is unmounted
+    return () => clearTimeout(timeoutId);
+  }, []);
 
 
   useEffect(() => {
@@ -79,7 +84,7 @@ export default function Home() {
           }
         </div>
       </div>
-      <div className="container2 w-full h-[100vh] overflow-hidden">
+      <div className="container2 w-full h-[100vh] overflow-hidden" ref={scrollableContainerRef}>
         <div className="container">
           <div ref={section1}>
             <Mysection
