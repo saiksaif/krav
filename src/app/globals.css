@@ -82,7 +82,7 @@
   animation-duration: 5s;
   scale: 0.3;
 
-  translate: 0px -105px;
+  translate: 0px -140px;
 }
 
 @keyframes logoShrink {
@@ -100,7 +100,7 @@
 
   100% {
     scale: 0.3;
-    translate: 0px -105px;
+    translate: 0px -140px;
     /* background-color: transparent; */
   }
 }
