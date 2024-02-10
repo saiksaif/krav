@@ -98,7 +98,7 @@ export default function Home() {
               headline={`Lorem Ipsum Dolor Sit Amet`}
             >
               <div className="w-full h-full flex justify-center items-center">
-                <video src="/Karv-UIUX.mp4" autoPlay muted playsInline controlsList="nodownload nofullscreen noremoteplayback"></video>
+                <video src="/Karv-UIUX.mp4" autoPlay muted playsInline controlsList="nodownload nofullscreen noremoteplayback" className="bg-black"></video>
               </div>
             </Mysection>
           </div>
